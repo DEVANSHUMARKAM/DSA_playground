@@ -1,3 +1,5 @@
+import java.lang.Math;
+
 import java.util.Arrays;
 
 public class MinProduct {
@@ -10,12 +12,13 @@ public class MinProduct {
 
     public static int findprod(int[] arr, int k){
         long MOD = 1000000007L;
-
+        int n = arr.length;
         Arrays.sort(arr);
+        int limit = Math.min(k,n);
         long product = 1;
 
-        for(int i=0; i<k; i++){
-            product = (product * arr[i]) % MOD;
+        for(int i=0; i<limit; i++){
+            product = (product * (long) arr[i]) % MOD;
         }
         return(int) product;
     }
